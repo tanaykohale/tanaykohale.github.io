@@ -330,7 +330,8 @@ window.EXPERIENCE = [
 ];
 
 window.EDUCATION = [
-  { degree: "B.Tech + M.Tech Dual Degree (Bioengineering / Biomedical Technology)", school: "IIT (BHU) Varanasi", when: "2024" },
+  { degree: "Master of Technology — Biomedical Technology", school: "Indian Institute of Technology (BHU) Varanasi", when: "2024" },
+  { degree: "Bachelor of Technology — Bioengineering", school: "Indian Institute of Technology (BHU) Varanasi", when: "2024" },
 ];
 
 window.ACHIEVEMENTS = [
