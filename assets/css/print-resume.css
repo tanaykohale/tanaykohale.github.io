@@ -57,7 +57,9 @@ h2 {
 .row .l .org { font-weight: 400; color: var(--ink-2); }
 .row .l a { border-bottom: 0; }
 .row .r { color: var(--ink-3); font-size: 9.2pt; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.row .r a { color: var(--acc); }
+.row .r a { color: var(--acc); font-weight: 600; }
+.row .l.res { font-weight: 400; font-size: 9.6pt; }
+.plain-p { margin: 0 0 2px; }
 ul { margin: 2px 0 0; padding-left: 14px; }
 li { margin: 0 0 1px; padding-left: 1px; }
 li::marker { color: var(--ink-3); font-size: .85em; }

@@ -63,7 +63,7 @@
           <div class="sk">${Object.entries(R.skills).map(([g, l]) => `<h4>${esc(g)}</h4><div class="chips">${l.map((s) => `<span class="chip">${esc(s)}</span>`).join("")}</div>`).join("")}</div>
         </section>
         <section class="card rs-block research reveal"><h2 data-n="${num()}">Research</h2>
-          ${R.research.map((r) => `<p>${rich(r)}</p>`).join("")}
+          ${R.research.map((r) => typeof r === "string" ? `<p>${rich(r)}</p>` : `<p>${r.slug ? `<a href="${pu(r.slug)}">${esc(r.text)}</a>` : esc(r.text)}${r.when ? ` <span class="dim">· ${esc(r.when)}</span>` : ""}</p>`).join("")}
         </section>
         <section class="card rs-block reveal"><h2 data-n="${num()}">Education</h2>
           ${window.EDUCATION.map((e) => `<div class="edu-i"><b>${esc(e.degree)}</b><span>${esc(e.school)} · ${esc(e.when)}</span></div>`).join("")}

@@ -40,11 +40,12 @@
   ${R.projects.map((rp) => { const p = P(rp.slug); const live = (p.links || []).find((l) => /live/i.test(l.label));
     return `<div class="item">
     <div class="row"><div class="l"><a href="${proj(rp.slug)}">${esc(rp.title || p.title)}</a> <span class="stk">| ${esc((rp.stack || p.stack || []).join(", "))}</span></div>
-      <div class="r">${live ? `<a href="${live.url}">live demo</a>` : ""}</div></div>
+      <div class="r">${live ? `<a href="${live.url}">live demo ↗</a> · ` : ""}<a href="${proj(rp.slug)}">details ↗</a></div></div>
     <ul>${rp.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul></div>`; }).join("")}
   ${R.oneLiners && R.oneLiners.length ? `<div class="item"><div class="row"><div class="l">More projects</div></div><ul>${R.oneLiners.map((o) => `<li><a href="${proj(o.slug)}"><b>${esc(o.title || P(o.slug).title)}</b></a> — ${esc(o.text)}</li>`).join("")}</ul></div>` : ""}
 
-  ${R.research && R.research.length ? `<h2>Research</h2><ul class="plain">${R.research.map((r) => `<li>${rich(r)}</li>`).join("")}</ul>` : ""}
+  ${R.research && R.research.length ? `<h2>Research</h2>${R.research.map((r) => typeof r === "string" ? `<p class="plain-p">${rich(r)}</p>` :
+    `<div class="item"><div class="row"><div class="l res">${rich(r.text)}</div><div class="r">${esc(r.when || "")}${r.slug ? `${r.when ? " · " : ""}<a href="${proj(r.slug)}">paper ↗</a>` : ""}</div></div></div>`).join("")}` : ""}
 
   <h2>Achievements</h2>
   <ul>${R.achievements.map((a) => `<li>${rich(a.t)}</li>`).join("")}</ul>

@@ -330,12 +330,11 @@ window.EXPERIENCE = [
 ];
 
 window.EDUCATION = [
-  { degree: "Master of Technology — Biomedical Technology", school: "Indian Institute of Technology (BHU) Varanasi", when: "2024" },
-  { degree: "Bachelor of Technology — Bioengineering", school: "Indian Institute of Technology (BHU) Varanasi", when: "2024" },
+  { degree: "B.Tech + M.Tech Dual Degree (Bioengineering / Biomedical Technology)", school: "IIT (BHU) Varanasi", when: "2024" },
 ];
 
 window.ACHIEVEMENTS = [
-  { big: "547", small: "of 4,428", label: "2026 International Collegiate Programming Contest (ICPC) Online Challenge powered by Huawei — top 13%" },
+  { big: "547", small: "of 4,428", label: "2026 International Collegiate Programming Contest (ICPC) Online Challenge powered by Huawei — top 12.5%" },
   { big: "72", small: "AIR", label: "GATE 2023 — Biomedical Engineering" },
   { big: "2", small: "degrees", label: "B.Tech + M.Tech, IIT (BHU) Varanasi" },
   { big: "1", small: "paper", label: "Co-authored manuscript, under review at Biointerphases" },
