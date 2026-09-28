@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanay Kohale — AI, data & product engineer</title>
+<meta name="description" content="Tanay Kohale — IIT (BHU) engineer building AI agents, local-LLM tools, data pipelines and web products. Rachnava, Quiz Studio and more.">
+<meta property="og:title" content="Tanay Kohale">
+<meta property="og:description" content="AI agents, local-LLM tools, data pipelines and web products.">
+<meta name="theme-color" content="#07080c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a4c'/%3E%3Cstop offset='1' stop-color='%237cc4ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' text-anchor='middle' fill='%2307080c'%3ETK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  /* ---------- hero ---------- */
+  .hero { min-height: calc(100svh - 70px); display: grid; align-items: center; padding: 40px 0 70px; }
+  .hero .label { font: 500 13px/1 var(--mono); color: var(--ink-2); display: inline-flex; gap: 10px; align-items: center; padding: 8px 14px 8px 10px; border: 1px solid var(--line); border-radius: 999px; background: rgba(10,11,16,.5); backdrop-filter: blur(8px); }
+  .hero .label b { width: 8px; height: 8px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 0 rgba(79,209,165,.6); animation: ping 2s infinite; }
+  @keyframes ping { 70% { box-shadow: 0 0 0 10px rgba(79,209,165,0); } 100% { box-shadow: 0 0 0 0 rgba(79,209,165,0); } }
+  .hero h1 { font: 700 clamp(58px, 13.5vw, 196px)/.84 var(--display); letter-spacing: clamp(-3px, -.5vw, -8px); margin: 34px 0 30px; }
+  .hero h1 .l2 { display: block; padding-left: clamp(0px, 9vw, 150px);
+    background: linear-gradient(90deg, var(--acc) 0%, #ffb36b 25%, var(--acc-3) 60%, var(--acc-2) 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+    background-size: 200% 100%; animation: sheen 8s ease-in-out infinite alternate; }
+  @keyframes sheen { to { background-position: 100% 0; } }
+  .hero h1 .l2 { opacity: 0; transform: translateY(.25em); animation: up 1.1s cubic-bezier(.2,.8,.2,1) .45s forwards, sheen 8s ease-in-out 1.5s infinite alternate; }
+  .hero h1 .ch { display: inline-block; opacity: 0; transform: translateY(.35em) rotate(4deg); animation: up .9s cubic-bezier(.2,.8,.2,1) forwards; }
+  @keyframes up { to { opacity: 1; transform: none; } }
+  .hero .row { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 40px; align-items: end; }
+  .hero .tagline { font-size: clamp(18px, 2.1vw, 24px); line-height: 1.45; color: #d7dae6; margin: 0 0 30px; max-width: 30ch; }
+  .hero .cta { display: flex; flex-wrap: wrap; gap: 10px; }
+  .now { padding: 22px; justify-self: end; width: min(100%, 400px); }
+  .now .t { font: 500 11.5px/1 var(--mono); letter-spacing: 1.6px; text-transform: uppercase; color: var(--ink-3); display: flex; justify-content: space-between; }
+  .now h3 { font: 600 26px/1.1 var(--display); margin: 14px 0 8px; letter-spacing: -.5px; }
+  .now p { margin: 0 0 16px; color: var(--ink-2); font-size: 14.5px; }
+  .now .bar { height: 4px; border-radius: 4px; background: var(--line); overflow: hidden; }
+  .now .bar i { display: block; height: 100%; width: 40%; background: linear-gradient(90deg, var(--acc), var(--acc-3)); animation: load 3.2s ease-in-out infinite; }
+  @keyframes load { 0% { transform: translateX(-100%); } 100% { transform: translateX(260%); } }
+  .scrollcue { margin-top: 56px; font: 500 12px var(--mono); color: var(--ink-3); display: flex; gap: 12px; align-items: center; letter-spacing: 1.5px; text-transform: uppercase; }
+  .scrollcue i { width: 1px; height: 38px; background: linear-gradient(var(--ink-2), transparent); animation: cue 2s infinite; transform-origin: top; }
+  @keyframes cue { 0% { transform: scaleY(0); } 60% { transform: scaleY(1); opacity: 1; } 100% { opacity: 0; } }
+  @media (max-width: 880px) { .hero .row { grid-template-columns: 1fr; } .now { justify-self: start; } }
+
+  /* ---------- marquee ---------- */
+  .marquee { border-block: 1px solid var(--line); background: rgba(10,11,16,.6); overflow: hidden; position: relative; z-index: 2; }
+  .marquee .track { display: flex; width: max-content; animation: mq 38s linear infinite; }
+  .marquee:hover .track { animation-play-state: paused; }
+  .marquee .item { display: flex; align-items: baseline; gap: 12px; padding: 22px 34px; white-space: nowrap; border-right: 1px solid var(--line); }
+  .marquee b { font: 600 30px/1 var(--display); letter-spacing: -1px; }
+  .marquee span { color: var(--ink-2); font-size: 14.5px; }
+  @keyframes mq { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee .track { animation: none; flex-wrap: wrap; } }
+
+  /* ---------- featured ---------- */
+  .feat { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 0; min-height: 560px; margin-bottom: 26px; }
+  .feat.flip { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+  .feat.flip .txt { order: 2; }
+  .feat .txt { padding: clamp(28px, 4.5vw, 56px); display: flex; flex-direction: column; justify-content: center; }
+  .feat .num { font: 400 clamp(90px, 12vw, 150px)/.8 var(--serif); font-style: italic; color: transparent; -webkit-text-stroke: 1px var(--line-2); margin-bottom: 14px; }
+  .feat h3 { font: 600 clamp(38px, 5vw, 62px)/1 var(--display); letter-spacing: -1.8px; margin: 16px 0 16px; }
+  .feat p { color: var(--ink-2); font-size: 16.5px; margin: 0 0 22px; max-width: 46ch; }
+  .feat .vis { position: relative; min-height: 380px; border-left: 1px solid var(--line); overflow: hidden;
+    background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--c) 16%, transparent), transparent 65%), repeating-linear-gradient(0deg, transparent 0 39px, rgba(255,255,255,.035) 39px 40px), repeating-linear-gradient(90deg, transparent 0 39px, rgba(255,255,255,.035) 39px 40px); }
+  .feat.flip .vis { border-left: 0; border-right: 1px solid var(--line); }
+  .legend { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin: 0 0 26px; font-size: 13.5px; color: var(--ink-2); }
+  .legend span { display: flex; align-items: center; gap: 8px; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+  @media (max-width: 880px) {
+    .feat, .feat.flip { grid-template-columns: 1fr; }
+    .feat.flip .txt { order: 0; }
+    .feat .vis, .feat.flip .vis { border: 0; border-top: 1px solid var(--line); min-height: 340px; }
+  }
+
+  /* Rachnava tree */
+  .tree { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .tree .e { fill: none; stroke: rgba(200,210,235,.28); stroke-width: 1.3; stroke-dasharray: 300; stroke-dashoffset: 300; }
+  .in .tree .e { animation: draw 1.4s cubic-bezier(.4,.1,.2,1) forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .tree .n { opacity: 0; transform-box: fill-box; transform-origin: center; }
+  .in .tree .n { animation: pop .6s cubic-bezier(.2,1.4,.4,1) forwards; }
+  @keyframes pop { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: none; } }
+  .tree text { font: 500 11px var(--mono); fill: #cfd4e4; }
+  .tree .q text { font: 600 12.5px var(--body); fill: #fff; }
+  .tree .wall { animation: wallpulse 2.4s ease-in-out infinite !important; opacity: 1; }
+  @keyframes wallpulse { 50% { filter: drop-shadow(0 0 10px #ff5d73); } }
+
+  /* Quiz Studio bubble sheet */
+  .sheet { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%) rotate(-4deg); width: min(360px, 82%); background: #f4f1ea; color: #1c1d22; border-radius: 16px; padding: 18px 20px 20px; box-shadow: 0 40px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.1); transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+  .feat:hover .sheet { transform: translate(-50%, -52%) rotate(-1deg); }
+  .sheet .hd { display: flex; justify-content: space-between; font: 600 11px var(--mono); letter-spacing: 1px; text-transform: uppercase; color: #6d6a62; margin-bottom: 12px; }
+  .sheet .q { display: grid; grid-template-columns: 26px repeat(4, 1fr); align-items: center; gap: 8px; padding: 5px 0; border-bottom: 1px dashed #d8d3c7; font: 600 12px var(--mono); color: #6d6a62; }
+  .sheet .b { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid #b9b3a5; justify-self: center; display: grid; place-items: center; font-size: 9.5px; color: #9b958a; position: relative; }
+  .sheet .b.f::after { content: ""; position: absolute; inset: 2px; border-radius: 50%; background: #1c1d22; transform: scale(0); }
+  .in .sheet .b.f::after { animation: fill .35s cubic-bezier(.2,1.5,.4,1) forwards; animation-delay: var(--d); }
+  @keyframes fill { to { transform: scale(1); } }
+  .sheet .b.ok { border-color: #2aa876; } .sheet .b.bad { border-color: #e05a5a; }
+  .sheet .foot { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
+  .sheet .score { font: 700 24px var(--display); }
+  .sheet .pill { font: 600 11px var(--mono); padding: 6px 9px; border-radius: 6px; background: #1c1d22; color: #f4f1ea; }
+  .floaty { position: absolute; padding: 10px 14px; border-radius: 12px; background: rgba(14,15,21,.85); border: 1px solid var(--line-2); font: 500 12.5px var(--mono); color: var(--ink); backdrop-filter: blur(8px); animation: bob 5s ease-in-out infinite; }
+  .floaty b { color: var(--c); }
+  @keyframes bob { 50% { transform: translateY(-10px); } }
+
+  /* ---------- journey ---------- */
+  .tl { position: relative; margin-top: 40px; }
+  .tl::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(var(--acc), var(--acc-3) 50%, var(--line)); }
+  .tl .it { position: relative; padding: 0 0 38px 48px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 20px; }
+  .tl .it::before { content: ""; position: absolute; left: 5px; top: 7px; width: 13px; height: 13px; border-radius: 50%; background: var(--bg); border: 2px solid var(--acc); box-shadow: 0 0 14px rgba(255,138,76,.5); }
+  .tl .it:first-child::before { background: var(--acc); }
+  .tl h4 { font: 600 22px/1.2 var(--display); margin: 0; letter-spacing: -.3px; }
+  .tl .org { color: var(--ink-2); font-size: 15px; }
+  .tl .when { font: 500 13px var(--mono); color: var(--ink-3); white-space: nowrap; }
+  .tl ul { grid-column: 1 / -1; margin: 8px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 15px; }
+  @media (max-width: 600px) { .tl .it { grid-template-columns: 1fr; } }
+  .journey { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(30px, 6vw, 80px); }
+  @media (max-width: 900px) { .journey { grid-template-columns: 1fr; } }
+  .edu { padding: 22px; margin-bottom: 14px; }
+  .edu b { display: block; font: 600 19px var(--display); }
+  .edu span { color: var(--ink-2); font-size: 14.5px; }
+  .skillgrp { margin-bottom: 16px; }
+  .skillgrp h5 { margin: 0 0 8px; font: 500 12px var(--mono); letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-3); }
+  details.certs { margin-top: 26px; }
+  details.certs summary { cursor: pointer; font: 600 15px var(--display); list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; }
+  details.certs summary::-webkit-details-marker { display: none; }
+  details.certs summary::after { content: "+"; font: 400 24px var(--mono); color: var(--ink-3); transition: .3s; }
+  details.certs[open] summary::after { transform: rotate(45deg); }
+  details.certs ul { list-style: none; margin: 0; padding: 0 22px 18px; font-size: 14px; }
+  details.certs li { display: flex; justify-content: space-between; gap: 14px; padding: 8px 0; border-top: 1px solid var(--line); color: var(--ink-2); }
+  details.certs li span:last-child { font-family: var(--mono); font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+
+  /* ---------- stats bento ---------- */
+  .bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+  .bento .card { padding: 26px; min-height: 190px; display: flex; flex-direction: column; justify-content: space-between; }
+  .bento b { font: 700 clamp(46px, 6vw, 74px)/.9 var(--display); letter-spacing: -2px; }
+  .bento b small { font: 400 20px var(--serif); font-style: italic; letter-spacing: 0; color: var(--ink-2); margin-left: 6px; }
+  .bento p { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+  .bento .card:nth-child(1) b { color: var(--acc); }
+  @media (max-width: 900px) { .bento { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 460px) { .bento { grid-template-columns: 1fr; } .bento .card { min-height: 140px; } }
+
+  /* ---------- contact ---------- */
+  .contact { text-align: center; padding-bottom: 140px; }
+  .contact h2 { font: 700 clamp(48px, 11vw, 150px)/.9 var(--display); letter-spacing: -4px; margin: 0 0 30px; }
+  .contact h2 .serif { font-weight: 400; letter-spacing: -2px; color: var(--acc); }
+  .contact .mail { font: 500 clamp(17px, 2.4vw, 26px) var(--mono); border-bottom: 1px solid var(--line-2); padding-bottom: 4px; transition: .2s; word-break: break-all; }
+  .contact .mail:hover { color: var(--acc); border-color: var(--acc); }
+  .contact .cta { display: flex; gap: 10px; justify-content: center; margin-top: 34px; flex-wrap: wrap; }
+</style>
+</head>
+<body data-root="" data-page="home">
+<canvas id="graph" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="nav"></header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero" style="padding-top:40px">
+    <div class="wrap">
+      <span class="label"><b></b> IIT (BHU) · B.Tech + M.Tech 2024 · building in public</span>
+      <h1 id="heroName" aria-label="Tanay Kohale"><span class="l1">Tanay</span><span class="l2">Kohale</span></h1>
+      <div class="row">
+        <div>
+          <p class="tagline" id="tagline"></p>
+          <div class="cta" id="heroCta"></div>
+        </div>
+        <a class="card glow now reveal" style="--c:#ff8a4c" href="projects/rachnava.html">
+          <div class="t"><span>● Now building</span><span>2025 → </span></div>
+          <h3>Rachnava</h3>
+          <p>A public map of the technology India still needs to build — orchestrated by 10+ AI agents.</p>
+          <div class="bar"><i></i></div>
+        </a>
+      </div>
+      <div class="scrollcue"><i></i> Scroll to explore</div>
+    </div>
+  </section>
+
+  <!-- ================= MARQUEE ================= -->
+  <div class="marquee" aria-label="Highlights"><div class="track" id="marquee"></div></div>
+
+  <!-- ================= FEATURED ================= -->
+  <section id="featured">
+    <div class="wrap">
+      <div class="eyebrow">Featured work</div>
+      <h2 class="big reveal">Two things I'm <span class="serif">proud of</span></h2>
+      <p class="lede reveal" style="margin-bottom:50px">One is an ambitious map still being drawn. The other is live — you can use it right now.</p>
+
+      <!-- Rachnava -->
+      <article class="card feat reveal" style="--c:#ff8a4c" id="f-rachnava">
+        <div class="txt">
+          <div class="num">01</div>
+          <span class="tag">Ongoing · multi-agent · graph data</span>
+          <h3>Rachnava</h3>
+          <p>Why does India build the Kaveri engine but import fighter-jet engines? Rachnava follows questions like this down — part by part, process by process — until it reaches the exact missing capability, and shows who in the world holds it.</p>
+          <div class="legend">
+            <span><i style="background:#8b93a8"></i>Common everywhere</span>
+            <span><i style="background:#4fd1a5"></i>Done in India</span>
+            <span><i style="background:#ffd166"></i>Done only abroad</span>
+            <span><i style="background:#ff5d73"></i>Done by nobody</span>
+          </div>
+          <div class="cta" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="projects/rachnava.html">Read the idea <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+        <div class="vis" aria-hidden="true">
+          <svg class="tree" viewBox="0 0 520 520" preserveAspectRatio="xMidYMid meet">
+            <!-- edges -->
+            <path class="e" style="animation-delay:.2s" d="M260 92 C260 140 140 130 140 190"/>
+            <path class="e" style="animation-delay:.3s" d="M260 92 C260 140 380 130 380 190"/>
+            <path class="e" style="animation-delay:.7s" d="M140 212 C140 260 80 250 80 300"/>
+            <path class="e" style="animation-delay:.75s" d="M140 212 C140 260 200 250 200 300"/>
+            <path class="e" style="animation-delay:.8s" d="M380 212 C380 260 320 250 320 300"/>
+            <path class="e" style="animation-delay:.85s" d="M380 212 C380 260 440 250 440 300"/>
+            <path class="e" style="animation-delay:1.2s" d="M200 322 C200 370 260 360 260 410"/>
+            <path class="e" style="animation-delay:1.25s" d="M320 322 C320 370 260 360 260 410"/>
+            <path class="e" style="animation-delay:1.3s" d="M80 322 C80 370 90 380 90 410"/>
+            <path class="e" style="animation-delay:1.35s" d="M440 322 C440 370 430 380 430 410"/>
+            <!-- question -->
+            <g class="n q" style="animation-delay:0s">
+              <rect x="95" y="52" width="330" height="40" rx="20" fill="#16181f" stroke="#ff8a4c"/>
+              <text x="260" y="77" text-anchor="middle">Why import fighter-jet engines?</text>
+            </g>
+            <!-- level 1 -->
+            <g class="n" style="animation-delay:.55s"><rect x="80" y="190" width="120" height="26" rx="8" fill="#16181f" stroke="#8b93a8"/><text x="140" y="207" text-anchor="middle">Turbine blades</text></g>
+            <g class="n" style="animation-delay:.6s"><rect x="320" y="190" width="120" height="26" rx="8" fill="#16181f" stroke="#8b93a8"/><text x="380" y="207" text-anchor="middle">Hot section</text></g>
+            <!-- level 2 -->
+            <g class="n" style="animation-delay:1s"><circle cx="80" cy="310" r="11" fill="#4fd1a5"/><text x="80" y="342" text-anchor="middle">machining</text></g>
+            <g class="n" style="animation-delay:1.05s"><circle cx="200" cy="310" r="11" fill="#ffd166"/><text x="200" y="342" text-anchor="middle">single-crystal</text></g>
+            <g class="n" style="animation-delay:1.1s"><circle cx="320" cy="310" r="11" fill="#ffd166"/><text x="320" y="342" text-anchor="middle">coatings</text></g>
+            <g class="n" style="animation-delay:1.15s"><circle cx="440" cy="310" r="11" fill="#8b93a8"/><text x="440" y="342" text-anchor="middle">alloys</text></g>
+            <!-- level 3 -->
+            <g class="n" style="animation-delay:1.5s"><circle cx="90" cy="420" r="7" fill="#8b93a8"/></g>
+            <g class="n" style="animation-delay:1.55s"><circle cx="430" cy="420" r="7" fill="#4fd1a5"/></g>
+            <g class="n" style="animation-delay:1.7s">
+              <g class="wall"><rect x="195" y="408" width="130" height="30" rx="8" fill="#2a1016" stroke="#ff5d73"/><text x="260" y="427" text-anchor="middle" style="fill:#ffb3bd">the same furnace</text></g>
+            </g>
+            <text x="260" y="478" text-anchor="middle" style="font-size:10.5px;fill:#6c7187">illustrative · different questions meet at the same wall</text>
+          </svg>
+        </div>
+      </article>
+
+      <!-- Quiz Studio -->
+      <article class="card feat flip reveal" style="--c:#7cc4ff" id="f-quiz">
+        <div class="txt">
+          <div class="num">02</div>
+          <span class="tag" style="--c:#4fd1a5">Live · zero dependencies</span>
+          <h3>Quiz Studio</h3>
+          <p>A quiz &amp; exam companion in pure HTML, CSS and JavaScript — four quiz modes, a bubble-sheet exam mode, JEE and UPSC negative marking, timers, and an LLM prompt template to turn any notes into a quiz.</p>
+          <div class="chips" style="margin-bottom:26px"><span class="chip">JEE +4 / −1</span><span class="chip">UPSC +2 / −⅔</span><span class="chip">Playwright E2E</span><span class="chip">GitHub Pages</span></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn primary" href="https://tanaykohale.github.io/QuizStudio/" target="_blank" rel="noopener">Open live app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="btn" href="projects/quiz-studio.html">How it works</a>
+          </div>
+        </div>
+        <div class="vis" aria-hidden="true">
+          <div class="sheet">
+            <div class="hd"><span>Section A · Physics</span><span>⏱ 01:42:10</span></div>
+            <div id="bubbles"></div>
+            <div class="foot"><span class="score">+14</span><span class="pill">JEE · +4 / −1</span></div>
+          </div>
+          <div class="floaty" style="top:12%;left:7%;"><b>4</b> quiz modes</div>
+          <div class="floaty" style="bottom:12%;right:6%;animation-delay:-2s"><b>0</b> dependencies</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= EXPLORE ================= -->
+  <section id="work" style="padding-top:20px">
+    <div class="wrap">
+      <div class="eyebrow">Explore</div>
+      <h2 class="big reveal">More <span class="serif">work</span></h2>
+      <p class="lede reveal">Local-LLM tools, geospatial audits, mobile apps, health AI and CFD research. Pick a field, or open anything.</p>
+      <div class="filters" id="filters" role="group" aria-label="Filter by field"></div>
+      <div class="pgrid" id="grid"></div>
+      <div style="margin-top:30px;display:flex;justify-content:center"><a class="btn" href="projects/index.html" id="allwork">See everything in one place →</a></div>
+    </div>
+  </section>
+
+  <!-- ================= NUMBERS ================= -->
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <div class="eyebrow">Proof points</div>
+      <h2 class="big reveal">By the <span class="serif">numbers</span></h2>
+      <div class="bento" id="bento"></div>
+    </div>
+  </section>
+
+  <!-- ================= JOURNEY ================= -->
+  <section id="journey">
+    <div class="wrap journey">
+      <div>
+        <div class="eyebrow">Journey</div>
+        <h2 class="big reveal">Where I've <span class="serif">worked</span></h2>
+        <div class="tl" id="timeline"></div>
+      </div>
+      <div>
+        <div class="eyebrow">Education</div>
+        <div id="edu"></div>
+        <div class="eyebrow" style="margin-top:44px">Toolkit</div>
+        <div id="skills"></div>
+        <details class="card certs"><summary>Learning — 15 certificates</summary><ul id="certs"></ul></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">Contact</div>
+      <h2 class="reveal">Let's build <span class="serif">something.</span></h2>
+      <a class="mail" id="mail"></a>
+      <div class="cta" id="contactCta"></div>
+    </div>
+  </section>
+</main>
+
+<footer id="footer"></footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function () {
+  const S = SITE, I = ICONS, esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  // hero name — letter-by-letter entrance
+  document.querySelectorAll("#heroName .l1").forEach((el, li) => {
+    el.innerHTML = [...el.textContent].map((ch, i) => `<span class="ch" style="animation-delay:${li * 250 + i * 55}ms" aria-hidden="true">${ch}</span>`).join("");
+  });
+  document.getElementById("tagline").textContent = S.tagline;
+  const socials = `<a class="btn" href="${S.github}" target="_blank" rel="noopener">${I.gh} GitHub</a>
+    <a class="btn" href="${S.linkedin}" target="_blank" rel="noopener">${I.li} LinkedIn</a>`;
+  document.getElementById("heroCta").innerHTML = `<a class="btn primary" href="#featured">See the work ${I.arrow}</a>${socials}<a class="btn" href="mailto:${S.email}">${I.mail} Email</a>`;
+  document.getElementById("contactCta").innerHTML = socials;
+  const m = document.getElementById("mail"); m.href = "mailto:" + S.email; m.textContent = S.email;
+
+  // marquee (duplicated for seamless loop)
+  const mq = [["547 / 4,428", "2026 ICPC Online Challenge powered by Huawei"], ["AIR 72", "GATE 2023 · Biomedical Engineering"], ["IIT (BHU)", "B.Tech + M.Tech · 2024"], ["10+ agents", "orchestrated in Rachnava"], ["1 paper", "co-authored · under review"], ["Live", "Quiz Studio on GitHub Pages"], ["0.3 µL/min", "laminar-flow rate found by CFD"]];
+  const mqHtml = mq.map(([b, s]) => `<div class="item"><b>${b}</b><span>${s}</span></div>`).join("");
+  document.getElementById("marquee").innerHTML = mqHtml + mqHtml;
+
+  // bubble sheet
+  const ans = [[1, "ok"], [3, "ok"], [0, "bad"], [2, "ok"], [-1], [1, "ok"]];
+  document.getElementById("bubbles").innerHTML = ans.map(([a, s], q) => `<div class="q"><span>${String(q + 1).padStart(2, "0")}</span>${"ABCD".split("").map((L, i) => `<span class="b ${i === a ? "f " + s : ""}" style="--d:${0.4 + q * .18}s">${i === a ? "" : L}</span>`).join("")}</div>`).join("");
+
+  // explore grid — everything except the two featured
+  const rest = PROJECTS.filter((p) => !p.featured);
+  const grid = document.getElementById("grid");
+  grid.innerHTML = rest.map(projectCard).join("");
+  const counts = { all: rest.length };
+  rest.forEach((p) => p.fields.forEach((f) => (counts[f] = (counts[f] || 0) + 1)));
+  const fb = document.getElementById("filters");
+  fb.innerHTML = [["all", "All"], ...Object.entries(FIELDS).map(([k, v]) => [k, v.short])]
+    .map(([k, l]) => `<button type="button" data-f="${k}" aria-pressed="${k === "all"}">${l}<sup>${counts[k] || 0}</sup></button>`).join("");
+  fb.addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    fb.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    grid.querySelectorAll(".pcard").forEach((c) => c.classList.toggle("hide", b.dataset.f !== "all" && !c.dataset.fields.split(" ").includes(b.dataset.f)));
+  });
+  document.getElementById("allwork").href = SITE_LINK("projects/index.html");
+
+  // numbers
+  document.getElementById("bento").innerHTML = ACHIEVEMENTS.map((a, i) => `<div class="card glow reveal" style="transition-delay:${i * 80}ms"><b>${esc(a.big)}<small>${esc(a.small)}</small></b><p>${esc(a.label)}</p></div>`).join("");
+
+  // journey
+  document.getElementById("timeline").innerHTML = EXPERIENCE.map((x) => `<div class="it reveal"><div><h4>${esc(x.role)}</h4><div class="org">${esc(x.org)}</div></div><div class="when">${esc(x.when)}</div><ul>${x.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ul></div>`).join("");
+  document.getElementById("edu").innerHTML = EDUCATION.map((e) => `<div class="card edu reveal"><b>${esc(e.degree)}</b><span>${esc(e.school)} · ${esc(e.when)}</span></div>`).join("");
+  document.getElementById("skills").innerHTML = Object.entries(SKILLS).map(([g, l]) => `<div class="skillgrp reveal"><h5>${esc(g)}</h5><div class="chips">${l.map((s) => `<span class="chip">${esc(s)}</span>`).join("")}</div></div>`).join("");
+  document.getElementById("certs").innerHTML = CERTS.map((c) => `<li><span>${esc(c[0])} <span class="dim">· ${esc(c[1])}</span></span><span>${esc(c[2])}</span></li>`).join("");
+
+  startGraph({ fadeOnScroll: true });
+  revealAll();
+})();
+</script>
+</body>
+</html>
