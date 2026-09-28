@@ -14,7 +14,7 @@ window.SITE = {
 
   // Visit counter — create a free GoatCounter account (goatcounter.com),
   // then put your code here, e.g. "tanaykohale". Leave "" to disable.
-  goatcounter: "",
+  goatcounter: "tanaykohale",
   // true = show total visits in the footer (enable "Allow adding visitor counts
   // on your website" in GoatCounter settings first)
   showVisitCount: false,
