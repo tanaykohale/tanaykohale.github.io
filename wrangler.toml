@@ -3,8 +3,8 @@ name = "tanay-site"
 main = "_worker.js"
 compatibility_date = "2026-01-01"
 workers_dev = true
-# Added once rachnava.in is active on Cloudflare:
-# routes = [{ pattern = "*.rachnava.in/*", zone_name = "rachnava.in" }]
+# Every sub-address of rachnava.in (tanay., and one per application) is served by this worker:
+routes = [{ pattern = "*.rachnava.in/*", zone_name = "rachnava.in" }]
 
 [assets]
 directory = "."

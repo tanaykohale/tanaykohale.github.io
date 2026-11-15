@@ -4,7 +4,7 @@
 window.SITE = {
   name: "Tanay Kohale",
   // Public address of the site — used for links inside PDFs. Change if you use a custom domain.
-  url: "https://tanaykohale.github.io",
+  url: "https://tanay.rachnava.in",
   // Hero one-liner (open item #14 — edit freely)
   tagline: "IIT (BHU) engineer building AI agents, local-LLM tools and data pipelines — and shipping them as products people can use.",
   email: "tanaykohale12@gmail.com",
