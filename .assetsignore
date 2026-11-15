@@ -1,0 +1,12 @@
+# Files that are part of the project but must not be served as web pages
+_worker.js
+wrangler.toml
+.assetsignore
+.gitignore
+.git
+README.md
+PUBLISH.md
+r/
+__fonts
+node_modules
+.wrangler

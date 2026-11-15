@@ -2,6 +2,10 @@
    Links point to the live site (SITE.url) so they still work inside the PDF. */
 (function () {
   const R = window.RESUME, S = window.SITE;
+  // Optional per-application settings written by JobTool (r/<slug>/jobtool.js): email/phone to show, tracked links.
+  const J = window.JOBTOOL || {};
+  const EMAIL = J.email !== undefined ? J.email : S.email;
+  const PHONE = J.phone !== undefined ? J.phone : R.phone;
   const BASE = S.url.replace(/\/$/, "");
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const proj = (slug) => `${BASE}/projects/${slug}.html`; // canonical project URL
@@ -12,8 +16,8 @@
   document.title = `${S.name} — ${R.role} Resume`;
 
   const contact = [
-    `<a href="mailto:${S.email}">${S.email}</a>`,
-    R.phone ? `<a href="tel:${R.phone.replace(/\s/g, "")}">${esc(R.phone)}</a>` : "",
+    EMAIL ? `<a href="mailto:${EMAIL}">${EMAIL}</a>` : "",
+    PHONE ? `<a href="tel:${PHONE.replace(/\s/g, "")}">${esc(PHONE)}</a>` : "",
   ].filter(Boolean).join(" · ") + "<br>" + [
     `<a href="${S.linkedin}">${host(S.linkedin)}</a>`,
     `<a href="${S.github}">${host(S.github)}</a>`,
@@ -57,6 +61,9 @@
   ${window.EDUCATION.map((e) => `<div class="row"><div class="l">${esc(e.degree)} <span class="org">— ${esc(e.school)}</span></div><div class="r">${esc(e.when)}</div></div>`).join("")}
 
   <div class="foot">Project write-ups, screenshots and live demos: <a href="${homeUrl}">${host(BASE)}</a></div>`;
+
+  // Tracked links: visible text stays the same, the link goes through my own domain first.
+  if (J.links) document.querySelectorAll("#sheet a[href^='http']").forEach((a) => { if (J.links[a.href]) a.href = J.links[a.href]; });
 
   const tb = document.createElement("div");
   tb.className = "toolbar";
